@@ -8,8 +8,9 @@ This project is designed as an intensive bootcamp-style learning program focused
   <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img1.png" height=200 />
   <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img2.png" height=200 />
   <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img3.png" height=200 />
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img4.jfif" height=200 />
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img5.png" height=200 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img4.jfif" height=150 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img5.png" height=150 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img6.png" height=150 />
 </p>
 
 ## Purpose
@@ -154,5 +155,6 @@ This is a self-paced learning program. The bootcamp structure emphasizes rapid s
 ## License
 
 Original content created by Taewook Kang (laputa99999@gmail.com) is licensed under the MIT License. Referenced materials, textbooks, ISO specifications, and third-party documentation retain their respective copyrights and licenses. Users should respect copyright restrictions on all reference materials and specifications.
+
 
 
