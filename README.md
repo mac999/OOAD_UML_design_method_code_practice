@@ -1,4 +1,4 @@
-# OOAD and Design Practice Project
+# OOAD, UML, Methodology and Architecture Design Practice Tutorial
 
 ## Overview
 
@@ -63,7 +63,7 @@ Covers software development methodologies and process frameworks.
 
 ### 6_vibe_design_coding
 
-Practical coding exercises integrating UML with Python implementation.
+Practical coding exercises integrating UML with Python implementation using vibe design approach like vibe coding.
 
 - UML to code translation practices
 - Python-based design pattern implementations
@@ -144,3 +144,4 @@ This is a self-paced learning program. The bootcamp structure emphasizes rapid s
 ## License
 
 Original content created by Taewook Kang is licensed under the MIT License. Referenced materials, textbooks, ISO specifications, and third-party documentation retain their respective copyrights and licenses. Users should respect copyright restrictions on all reference materials and specifications.
+
