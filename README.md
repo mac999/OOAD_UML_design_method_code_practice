@@ -92,7 +92,7 @@ Real-world application scenarios and industry standard references.
 
 Supplementary reference materials and additional documentation.
 
-- Extended PlantUML documentation in Korean
+- Enterprise Architecture manual for UML
 - RUP template files
 - Additional reference materials
 
@@ -156,6 +156,7 @@ This is a self-paced learning program. The bootcamp structure emphasizes rapid s
 ## License
 
 Original content created by Taewook Kang (laputa99999@gmail.com) is licensed under the MIT License. Referenced materials, textbooks, ISO specifications, and third-party documentation retain their respective copyrights and licenses. Users should respect copyright restrictions on all reference materials and specifications.
+
 
 
 
