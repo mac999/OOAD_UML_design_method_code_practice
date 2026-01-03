@@ -10,7 +10,9 @@ The project aims to provide comprehensive training in software design and archit
 
 ## Prerequisites
 
-No specific prerequisites are required. The materials are structured to guide learners from basic tooling setup through advanced design concepts.
+The materials are structured to guide learners from basic tooling setup through advanced design concepts.
+
+- Computer programming experience like Python, C++
 
 ## Installation
 
@@ -144,5 +146,6 @@ This is a self-paced learning program. The bootcamp structure emphasizes rapid s
 ## License
 
 Original content created by Taewook Kang is licensed under the MIT License. Referenced materials, textbooks, ISO specifications, and third-party documentation retain their respective copyrights and licenses. Users should respect copyright restrictions on all reference materials and specifications.
+
 
 
