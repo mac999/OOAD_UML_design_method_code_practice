@@ -5,12 +5,12 @@
 This project is designed as an intensive bootcamp-style learning program focused on building practical software engineering skills considering the model standardization. The curriculum covers Object-Oriented Analysis and Design, Unified Modeling Language, design patterns, software development methodologies, and system architecture design. The primary objective is to develop real-world competencies in a short timeframe through structured study and hands-on practice with digital twin model architecture design.
 
 <p align="center">
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img1.png" height=200 />
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img2.png" height=200 />
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img3.png" height=200 /> </br>
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img1.png" height=150 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img2.png" height=150 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img6.png" height=150 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img3.png" height=150 /> </br>
   <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img4.jfif" height=170 />
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img5.png" height=170 /> </br>
-  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img6.png" height=250 />
+  <img src="https://github.com/mac999/OOAD_UML_design_method_code_practice/blob/main/8_appendix/img5.png" height=170 /> 
 </p>
 
 ## Purpose
@@ -155,6 +155,7 @@ This is a self-paced learning program. The bootcamp structure emphasizes rapid s
 ## License
 
 Original content created by Taewook Kang (laputa99999@gmail.com) is licensed under the MIT License. Referenced materials, textbooks, ISO specifications, and third-party documentation retain their respective copyrights and licenses. Users should respect copyright restrictions on all reference materials and specifications.
+
 
 
 
