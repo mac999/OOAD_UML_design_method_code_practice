@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is designed as an intensive bootcamp-style learning program focused on building practical software engineering skills. The curriculum covers Object-Oriented Analysis and Design, Unified Modeling Language, design patterns, software development methodologies, and system architecture design. The primary objective is to develop real-world competencies in a short timeframe through structured study and hands-on practice with digital twin model architecture design.
+This project is designed as an intensive bootcamp-style learning program focused on building practical software engineering skills considering the model standardization. The curriculum covers Object-Oriented Analysis and Design, Unified Modeling Language, design patterns, software development methodologies, and system architecture design. The primary objective is to develop real-world competencies in a short timeframe through structured study and hands-on practice with digital twin model architecture design.
 
 ## Purpose
 
@@ -144,4 +144,5 @@ This is a self-paced learning program. The bootcamp structure emphasizes rapid s
 ## License
 
 Original content created by Taewook Kang is licensed under the MIT License. Referenced materials, textbooks, ISO specifications, and third-party documentation retain their respective copyrights and licenses. Users should respect copyright restrictions on all reference materials and specifications.
+
 
