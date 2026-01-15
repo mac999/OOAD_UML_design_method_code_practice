@@ -1,0 +1,363 @@
+@startuml
+' --- [스타일 설정: 가시성 및 가독성 최적화] ---
+skinparam backgroundColor White
+skinparam sequence {
+    ArrowColor Black
+    LifeLineBorderColor Black
+    LifeLineBackgroundColor WhiteSmoke
+    ParticipantBorderColor Black
+    ParticipantBackgroundColor White
+    ActorBorderColor Black
+    ActorBackgroundColor White
+    NoteBackgroundColor LightYellow
+    NoteBorderColor Gray
+}
+skinparam defaultTextAlignment center
+
+' --- [참여자 정의] ---
+actor "Operator\n(Env. Manager)" as User
+participant "IoT Sensor\n(Field)" as Sensor
+participant "Digital Twin\nPlatform" as Platform
+participant "AI Anomaly\nDetector" as AI
+participant "Simulation\nEngine (CFD)" as Sim
+participant "Actuator\n(Fan/Sprinkler)" as Device
+
+' --- [시나리오 시작] ---
+title Sequence: Urban Microclimate Anomaly Response
+
+== 1. Monitoring & Detection Phase ==
+
+Sensor -> Platform : Send Telemetry (Temp=34°C, Wind=0m/s)
+activate Platform
+
+Platform -> Platform : Update Virtual Model
+Platform -> AI : Analyze Data Stream
+activate AI
+
+AI -> AI : Predict Heat Dome Risk
+AI --> Platform : Alert: "Heat Stagnation Detected (92%)"
+deactivate AI
+
+Platform -> User : Push Alert: "Abnormal Heat/Smog Predicted"
+deactivate Platform
+
+== 2. Simulation & Decision Phase ==
+
+User -> Platform : Request Solution Simulation
+activate Platform
+
+Platform -> Sim : Run CFD Simulation (Scenarios A, B)
+activate Sim
+
+note right of Sim
+  Scenario A: Sprinkler Only
+  Scenario B: Sprinkler + Vent Fan
+end note
+
+Sim -> Sim : Calculate Airflow & Dispersion
+Sim --> Platform : Return Simulation Results
+deactivate Sim
+
+Platform -> User : Show Comparison (Scenario B Recommended)
+deactivate Platform
+
+== 3. Action & Feedback Phase ==
+
+User -> Platform : Approve Scenario B
+activate Platform
+
+Platform -> Device : Send Control Command (Fan: ON, Speed: Max)
+activate Device
+
+Device -> Device : Adjust Output
+Device --> Platform : Ack (Status: Running)
+deactivate Device
+
+Platform -> Platform : Update Twin State (Actuator Active)
+Platform -> User : Notify "Mitigation Started"
+deactivate Platform
+
+== 4. Verification Phase ==
+
+loop Every 5 Minutes
+    Sensor -> Platform : Send New Data
+    Platform -> Platform : Verify Temperature Drop
+end
+
+@enduml
+
+
+@startuml
+' --- [스타일 설정] ---
+skinparam backgroundColor White
+skinparam defaultTextAlignment center
+
+skinparam node {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam component {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam database {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam cloud {
+    BackgroundColor White
+    BorderColor Black
+}
+
+' --- [물리적 노드 정의] ---
+node "Field Site (Smart City Zone)" {
+    node "IoT Edge Gateway" {
+        component "Edge Processor"
+    }
+    node "Sensors" {
+        component "Temp/Dust Sensor"
+    }
+    node "Actuators" {
+        component "Smart Vent Fan"
+        component "Sprinkler Controller"
+    }
+}
+
+cloud "Cloud Data Center" {
+    node "Kubernetes Cluster" {
+        component "Twin Platform API"
+        component "Simulation Engine (CFD)"
+        component "AI Prediction Model"
+    }
+    database "Time-Series DB\n(InfluxDB)" as Influx
+    database "Spatial DB\n(PostGIS)" as PostGIS
+}
+
+node "Control Center" {
+    node "Operator Workstation" {
+        component "Monitoring Dashboard"
+        component "3D Visualization Client"
+    }
+}
+
+' --- [연결 관계] ---
+[Temp/Dust Sensor] --> [IoT Edge Gateway] : Modbus/Zigbee
+[IoT Edge Gateway] --> [Twin Platform API] : MQTT/HTTPS (Secure)
+[Actuators] <-- [IoT Edge Gateway] : Control Signal
+
+[Twin Platform API] --> Influx
+[Twin Platform API] --> PostGIS
+[Twin Platform API] <--> [Simulation Engine (CFD)]
+[Simulation Engine (CFD)] ..> [AI Prediction Model]
+
+[Monitoring Dashboard] --> [Twin Platform API] : REST/WebSocket
+@enduml
+
+@startuml
+' --- [스타일 설정] ---
+skinparam backgroundColor White
+skinparam componentStyle uml2
+
+skinparam package {
+    BackgroundColor White
+    BorderColor Black
+    FontColor Black
+}
+skinparam component {
+    BackgroundColor White
+    BorderColor Black
+    ArrowColor Black
+}
+
+' --- [레이어 정의] ---
+package "Presentation Layer (UI)" {
+    component "Web Dashboard" as WebUI
+    component "3D Viewer (Unity/Cesium)" as 3DViewer
+}
+
+package "Service Layer (Business Logic)" {
+    component "Monitoring Service" as MonitorSvc
+    component "Simulation Service" as SimSvc
+    component "Control Service" as CtrlSvc
+}
+
+package "Domain Layer (Core)" {
+    component "Digital Twin Core" as TwinCore
+    component "Prediction Models (AI)" as AIModel
+}
+
+package "Data Access Layer" {
+    component "Time-Series DB" as TSDB
+    component "GIS Data Repository" as GISDB
+}
+
+package "Infrastructure Layer" {
+    component "IoT Gateway" as Gateway
+    component "External API Handler" as ExtAPI
+}
+
+' --- [의존성 연결] ---
+WebUI ..> MonitorSvc
+3DViewer ..> TwinCore
+
+MonitorSvc --> TwinCore
+SimSvc --> AIModel
+CtrlSvc --> Gateway
+
+TwinCore --> TSDB
+TwinCore --> GISDB
+
+Gateway --> TSDB : Ingest Data
+ExtAPI --> TSDB
+
+@enduml
+
+@startuml
+' --- [스타일 설정: 가시성 확보] ---
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadow false
+
+' 요소별 스타일 강제 지정 (흰색 배경, 검은색 선)
+skinparam usecase {
+    BackgroundColor White
+    BorderColor Black
+    ArrowColor Black
+}
+skinparam actor {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+' --- [액터 정의] ---
+actor "Environmental Manager" as Admin
+actor "IoT Sensors/Actuators" as IoT
+actor "External Weather API" as WeatherAPI
+
+' --- [시스템 경계] ---
+rectangle "Digital Twin Environment Platform" {
+    
+    package "Monitoring & Detection" {
+        usecase "Monitor Real-time Air/Weather" as UC1
+        usecase "Auto-Detect Anomalies (Heat/Smog)" as UC2
+    }
+
+    package "Analysis & Simulation" {
+        usecase "Run Wind & Dispersion Simulation" as UC3
+        usecase "Generate Optimization Scenarios" as UC4
+    }
+
+    package "Control & Response" {
+        usecase "Control Mitigation Devices\n(Fans/Sprinklers)" as UC5
+        usecase "Generate Dashboard Reports" as UC6
+    }
+}
+
+' --- [관계 정의] ---
+Admin --> UC1
+Admin --> UC3
+Admin --> UC5
+Admin --> UC6
+
+UC1 <.. UC2 : <<include>>
+UC3 <.. UC4 : <<include>>
+
+IoT --> UC1 : Send Sensor Data
+UC5 --> IoT : Send Control Command
+WeatherAPI --> UC1 : Provide Regional Weather Info
+
+@enduml
+
+
+@startuml
+' --- [설정: 렌더링 오류 방지 및 스타일] ---
+' 아이콘(도형) 대신 표준 텍스트 기호(+, -, #)를 사용하여 텍스트 누락 방지
+skinparam classAttributeIconSize 0
+' 클래스 멤버(속성, 메소드)가 강제로 보이도록 설정
+show members
+show methods
+show attributes
+
+' 가독성을 위한 스타일링
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+' --- [도메인 엔티티: 핵심 데이터 모델] ---
+class "DigitalTwinModel" as DT {
+    - twinId : String
+    - location : GeoLocation
+    - lastSyncTime : DateTime
+    + syncData() : void
+    + visualize() : void
+}
+
+class "MicroClimateZone" as Zone {
+    - zoneId : String
+    - currentTemp : Float
+    - airQualityIndex : Int
+    + getStatus() : Status
+}
+
+' --- [센서 및 액추에이터: IoT 장비] ---
+' 추상 클래스 정의
+abstract class "IoTDevice" as Device {
+    - deviceId : String
+    - status : DeviceStatus
+    + connect() : Boolean
+    + sendHeartbeat() : void
+}
+
+class "EnvironmentalSensor" as Sensor {
+    - type : SensorType
+    + measureData() : SensorData
+}
+
+class "ControlActuator" as Actuator {
+    - targetZone : String
+    + executeCommand(cmd: Command) : Result
+}
+
+' --- [비즈니스 로직: 분석 및 제어] ---
+class "SimulationEngine" as Sim {
+    - modelType : ModelType
+    + runCFD(params : SimulationParams) : SimResult
+    + predictFuture(time : DateTime) : Prediction
+}
+
+class "AnomalyDetector" as Detector {
+    - thresholds : Map<String, Float>
+    + analyzeStream(data : DataStream) : Alert
+}
+
+class "ScenarioManager" as Scenario {
+    + createScenario() : Scenario
+    + compareScenarios(s1, s2) : Report
+}
+
+' --- [관계 정의] ---
+' 1. 디지털 트윈은 여러 구역(Zone)으로 구성됨 (Composition)
+DT *-- Zone : "구성(1:N)"
+
+' 2. 각 구역에는 여러 IoT 장비가 있음 (Aggregation)
+Zone o-- Device : "포함(1:N)"
+
+' 3. IoT 장비의 구체적인 종류 (Inheritance)
+Device <|-- Sensor
+Device <|-- Actuator
+
+' 4. 디지털 트윈은 시뮬레이션 및 감지 엔진을 사용 (Dependency)
+DT ..> Sim : "Uses"
+DT ..> Detector : "Uses"
+
+' 5. 시뮬레이션 결과는 시나리오 생성에 활용 (Association)
+Sim --> Scenario : "Generates"
+
+@enduml
+
